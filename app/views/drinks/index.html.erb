@@ -1,8 +1,29 @@
-<%= link_to 'Add Drink', new_drink_path %>
+<%= link_to 'Add Drink', new_drink_path, class: "col-md-1 btn btn-default" %>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Drink</th>
+        <th>Size</th>
+        <th>Action</th>
+    </tr>
+</thead>
 
 <% @drinks.each do |drink| %>
-    <p>
-    Name : <%= link_to drink.name, drink_path(drink) %>
-    Size: <%= drink.size %> | <%= link_to 'Edit', edit_drink_path(drink) %> | <%= link_to 'Delete', drink, method: :delete %>
-    </p>
+    <tbody>
+        <tr>
+            <td>
+                <%= link_to drink.name, drink_path(drink) %>
+            </td>
+            <td>
+                <%= drink.size %>
+            </td>
+            <td>
+                <%= link_to 'Edit', edit_drink_path(drink), class: "btn btn-default" %>
+                <%= link_to 'Delete', drink, method: :delete, class: "btn btn-space btn-danger" %>
+            </td>
+        </tr>
+    </tbody>
 <% end %>
+
+</table>

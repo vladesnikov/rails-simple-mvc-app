@@ -1,8 +1,22 @@
-<%= form_for @drink do |f| %>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %><br/>
-    <br/>
-    <%= f.label :size %><br/>
-    <%= f.text_field :size %><br/>
-    <%= f.submit 'Save' %>
+<%= form_for @drink, :html => {:class => "form-horizontal"} do |f| %>
+    <div class="form-group">
+        <%= f.label :name, "Drink:", class: "col-md-1 control-label" %>
+        <div class="col-md-2">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :size, "Size:", class: "col-md-1 control-label" %>
+        <div class="col-md-2">
+          <%= f.text_field :size, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-1"></div>
+        <%= link_to 'Go back', drinks_path, class: "col-md-1 btn btn-space btn-default" %>
+        <%= f.submit "Save", class: "col-md-1 btn btn-space btn-default" %>
+    </div>
+    
 <% end %>

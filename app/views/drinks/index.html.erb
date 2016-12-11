@@ -1,8 +1,16 @@
 <%= link_to 'Add Drink', new_drink_path, class: "col-md-1 btn btn-default" %>
+</br>
+</br>
+
+<!--
+In database: <%= @drinks.count %>
+-->
 
 <table class="table">
+
 <thead>
     <tr>
+        <th>ID</th>
         <th>Drink</th>
         <th>Size</th>
         <th>Action</th>
@@ -12,6 +20,9 @@
 <% @drinks.each do |drink| %>
     <tbody>
         <tr>
+            <td>
+                <%= drink.id %>
+            </td>
             <td>
                 <%= link_to drink.name, drink_path(drink) %>
             </td>

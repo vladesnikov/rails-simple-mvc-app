@@ -2,6 +2,9 @@ class DrinksController < ApplicationController
 
     def index
         @drinks = Drink.all
+        if @drinks.count < 1
+            redirect_to url_for(:controller => :drinks, :action => :new)
+        end
     end
     
     def show

@@ -26,6 +26,11 @@ class DrinksController < ApplicationController
 
     def edit
         @drink = Drink.find(params[:id])
+        
+        respond_to do |format|
+            format.html # edit.html.erb
+            format.json { render json: @drink }
+        end
     end
     
     def update #save changes
